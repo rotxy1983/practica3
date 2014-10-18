@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Social/Social.h>
 
 @interface View2 : UIViewController<UIPickerViewDelegate,UIPickerViewDataSource>
 
@@ -15,7 +16,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *aerolinea;
 @property (weak, nonatomic) IBOutlet UITextField *origen;
 @property (weak, nonatomic) IBOutlet UITextField *destino;
+@property (strong,nonatomic) SLComposeViewController *slComposeViewControler;
 
 - (IBAction)buttonPressed:(id)sender;
+- (IBAction)shareToFacebook:(id)sender;
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A8659FE19F1E07600851176 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A8659FD19F1E07600851176 /* Social.framework */; };
 		1A8A985A19F0B1200015CE62 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A8A985919F0B1200015CE62 /* Foundation.framework */; };
 		1A8A985C19F0B1200015CE62 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A8A985B19F0B1200015CE62 /* CoreGraphics.framework */; };
 		1A8A985E19F0B1200015CE62 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A8A985D19F0B1200015CE62 /* UIKit.framework */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A8659FD19F1E07600851176 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		1A8A985619F0B1200015CE62 /* simplePickerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = simplePickerView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A8A985919F0B1200015CE62 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1A8A985B19F0B1200015CE62 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -72,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A8659FE19F1E07600851176 /* Social.framework in Frameworks */,
 				1A8A985C19F0B1200015CE62 /* CoreGraphics.framework in Frameworks */,
 				1A8A985E19F0B1200015CE62 /* UIKit.framework in Frameworks */,
 				1A8A985A19F0B1200015CE62 /* Foundation.framework in Frameworks */,
@@ -113,6 +116,7 @@
 		1A8A985819F0B1200015CE62 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1A8659FD19F1E07600851176 /* Social.framework */,
 				1A8A985919F0B1200015CE62 /* Foundation.framework */,
 				1A8A985B19F0B1200015CE62 /* CoreGraphics.framework */,
 				1A8A985D19F0B1200015CE62 /* UIKit.framework */,
@@ -480,6 +484,7 @@
 				1A8A988A19F0B1200015CE62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1A8A988B19F0B1200015CE62 /* Build configuration list for PBXNativeTarget "simplePickerViewTests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +493,7 @@
 				1A8A988D19F0B1200015CE62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

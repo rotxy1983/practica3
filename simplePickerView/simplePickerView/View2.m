@@ -10,9 +10,13 @@
 
 
 NSString *array[3] = {@"Volaris",@"AeroMexico",@"Interject"};
-NSString *estados[3] = {@"Jalisco",@"Michoacan",@"Veracruz"};//,@"BajaCalifornia",@"Chihuahua",@"San Luis Potosi",@"Chiapas" ,@"Guanajuato" ,@"Aguascalientes"};
-NSString *ciudades[3] = {@"BajaCalifornia",@"Chihuahua",@"San Luis Potosi" };//@"cd1",@"cd2",@"cd3"@"cd4",@"cd5",@"cd6",@"cd8",@"cd9",@"cd10"@"cd11",@"cd12",@"cd13",
-//@"cd14",@"cd15",@"cd16"@"cd17",@"cd18",@"cd19",@"cd20",@"cd21",@"cd22"@"cd23",@"cd24",@"cd25",@"cd26",@"cd27"};
+//Estados de origen para cada aerolinea
+NSString *estados[3] = {@"Jalisco",@"Michoacan",@"Veracruz"};
+NSString *estadosA[3] = {@"BajaCalifornia",@"Chihuahua",@"San Luis Potosi" };
+NSString *estadosI[3] = {@"Chiapas" ,@"Guanajuato" ,@"Aguascalientes"};
+//Estados destino para cada aerolinea
+NSString *destinos[3] = {@"Michoacan",@"Tamapulipas",@"Tampico" };
+
 
 @interface View2 ()
 
@@ -68,7 +72,7 @@ NSString *ciudades[3] = {@"BajaCalifornia",@"Chihuahua",@"San Luis Potosi" };//@
         return estados[row];
     }
     if ( component == 2 ){
-        return ciudades[row];
+        return destinos[row];
     }
     return array[row];
 }
@@ -86,12 +90,37 @@ NSString *ciudades[3] = {@"BajaCalifornia",@"Chihuahua",@"San Luis Potosi" };//@
 
 - (IBAction)buttonPressed:(id)sender {
     NSString *select = array[[_picker selectedRowInComponent:0]];
-    NSString *title = [[NSString alloc] initWithFormat:@"Seleccionaste %@",select];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:@"YEEEI" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
-    [alert show];
+    //NSString *title = [[NSString alloc] initWithFormat:@"Seleccionaste %@",select];
+    //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:@"YEEEI" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+    //[alert show];
     _aerolinea.text = select;
     _origen.text = estados[[_picker selectedRowInComponent:1]];
-    _destino.text = ciudades[[_picker selectedRowInComponent:2]];
+    _destino.text = destinos[[_picker selectedRowInComponent:2]];
     
+}
+
+- (IBAction)shareToFacebook:(id)sender {
+    
+    NSString *temp1 = @" Aerolinea: ";
+    NSString *tempAerolinea = [ temp1 stringByAppendingString:_aerolinea.text];
+    
+    NSString *temp2 = @" Origen: ";
+    NSString *tempOrigen = [ temp2 stringByAppendingString:_origen.text];
+    
+    NSString *temp3 = @" Destino: ";
+    NSString *tempDest = [ temp3 stringByAppendingString:_destino.text];
+    
+    NSString *tempString = [tempAerolinea stringByAppendingString:tempOrigen];
+    NSString *tempString2 = [tempString stringByAppendingString:tempDest];
+    
+    if( [SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]){
+        self.slComposeViewControler = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        [_slComposeViewControler setInitialText:tempString2];
+        [self presentViewController:_slComposeViewControler animated:YES completion:NULL];
+    }else{
+        UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"No Account Found" message:@"Configure account fb in setings" delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil,nil ];
+        alert.alertViewStyle = UIAlertViewStyleDefault;
+        [alert show];
+    }
 }
 @end

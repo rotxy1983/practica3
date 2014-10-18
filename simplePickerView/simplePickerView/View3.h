@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Social/Social.h>
 
 @interface View3 : UIViewController
+@property (strong,nonatomic) SLComposeViewController *slComposeViewControler;
 
 @end
